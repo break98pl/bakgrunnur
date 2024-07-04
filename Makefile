@@ -2,10 +2,11 @@ export GO_EASY_ON_ME = 1
 export ARCHS = arm64 arm64e
 export DEBUG = 0
 export FINALPACKAGE = 1
+export THEOS_DEVICE_IP=192.168.1.220
 
 export PREFIX = $(THEOS)/toolchain/Xcode11.xctoolchain/usr/bin/
 
-TARGET := iphone:clang:14.5:7.0
+TARGET := iphone:clang:14.3:7.0
 
 INSTALL_TARGET_PROCESSES = SpringBoard
 

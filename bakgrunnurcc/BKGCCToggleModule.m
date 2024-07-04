@@ -124,7 +124,9 @@
 			break;
 		}
 		case BKGCCModuleActionToggleApp:{
-			if ([frontMostApp.bundleIdentifier isEqualToString:@"com.apple.springboard"]) return;
+			if (!frontMostApp.bundleIdentifier || [frontMostApp.bundleIdentifier isEqualToString:@"com.apple.springboard"]){
+				return;
+			}
 			BOOL toggleVal = NO;
 			NSDictionary *item = [self getItem:prefs ofIdentifier:frontMostApp.bundleIdentifier forKey:@"enabledIdentifier" identifierKey:@"identifier" completion:nil];
 			if (item){
@@ -137,7 +139,9 @@
 			break;
 		}
 		case BKGCCModuleActionToggleAppOnce:{
-			if ([frontMostApp.bundleIdentifier isEqualToString:@"com.apple.springboard"]) return;
+			if (!frontMostApp.bundleIdentifier || [frontMostApp.bundleIdentifier isEqualToString:@"com.apple.springboard"]){
+				return;
+			}
 			BOOL toggleVal = NO;
 			NSDictionary *item = [self getItem:prefs ofIdentifier:frontMostApp.bundleIdentifier forKey:@"enabledIdentifier" identifierKey:@"identifier" completion:nil];
 			if (item){

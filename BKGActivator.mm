@@ -142,7 +142,9 @@
     
     BKGBakgrunnur *bakgrunnur = [BKGBakgrunnur sharedInstance];
     SBApplication *frontMostApp = [(SpringBoard *)[UIApplication sharedApplication] _accessibilityFrontMostApplication];
-    if ([frontMostApp.bundleIdentifier isEqualToString:@"com.apple.springboard"]) return;
+    if (!frontMostApp.bundleIdentifier || [frontMostApp.bundleIdentifier isEqualToString:@"com.apple.springboard"]){
+		return;
+	}
     
     if ([listenerName isEqualToString:@"bakgrunnur.enable"]){
         prefs[@"enabled"] = @YES;
